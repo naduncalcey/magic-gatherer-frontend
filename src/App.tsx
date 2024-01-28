@@ -1,11 +1,21 @@
-import { Button } from "@/components/ui/button";
+import { ThemeProvider } from "@/components/theme-provider";
+import { NavMenu } from "@/components/custom/navmenu.tsx";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/home";
+import Cards from "./pages/cards";
 
 function App() {
 
   return (
-    <>
-      <Button>Click me</Button>
-    </>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <NavMenu />
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cards" element={<Cards />} />
+        </Routes>
+      </div>
+    </ThemeProvider>
   )
 }
 
